@@ -4,3 +4,4 @@ pandas
 joblib
 matplot
 scikit-learn
+streamlit
