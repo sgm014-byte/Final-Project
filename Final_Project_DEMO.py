@@ -9,9 +9,15 @@ import pandas as pd
 import pickle
 
 # Open the file and load the model
-file_to_load = 'log_model.pkl'
-with open(file_to_load, 'rb') as file:
-    loaded_model = pickle.load(file)
+import joblib
+
+# Open the file and load the model
+file_to_load = 'lasso_model.pkl'
+try:
+    loaded_model = joblib.load(file_to_load)
+except Exception as error:
+    st.error(f"Model load failed: {error}")
+    st.stop()
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="💰 Loan Default ML Predictor", layout="centered")
