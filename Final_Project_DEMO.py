@@ -29,7 +29,7 @@ fico_range_high = st.checkbox("fico_range_high?")
 int_rate = st.slider("Int Rate", 20000, 1000000, 80000)
 loan_amnt = st.slider("loan_amnt", 0, 40, 10)
 installment = st.slider("installment", 0, 40, 10)
-fico = st.slider("FICO Score", 300, 850, 650)
+term_num = st.slider("FICO Score", 300, 850, 650)
 
 # Prediction
 if st.button("Predict Loan Default"):
