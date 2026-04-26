@@ -9,7 +9,7 @@ import pandas as pd
 import pickle
 
 # Open the file and load the model
-file_to_load = 'lend_logistic_model.pkl'
+file_to_load = 'log_model.pkl'
 with open(file_to_load, 'rb') as file:
     loaded_model = pickle.load(file)
 
@@ -19,18 +19,20 @@ st.title("💰 Loan Default Prediction")
 st.markdown("Enter a potential loan customer's details to predict their risk of default.")
 
 # User input
-ownhome = st.checkbox("Own Their Home?")
-income = st.slider("Family Income", 20000, 1000000, 80000)
-dti = st.slider("Debt-to-Income Ratio", 0, 40, 10)
+fico_range_high = st.checkbox("fico_range_high?")
+int_rate = st.slider("Int Rate", 20000, 1000000, 80000)
+loan_amnt = st.slider("loan_amnt", 0, 40, 10)
+installment = st.slider("installment", 0, 40, 10)
 fico = st.slider("FICO Score", 300, 850, 650)
 
 # Prediction
 if st.button("Predict Loan Default"):
     new_customer = pd.DataFrame({
-    'home_ownership': [ownhome],
-    'income': [income],
-    'dti': [dti],
-    'fico': [fico]
+    'fico_range_high': [fico_range_high],
+    'int_rate': [int_rate],
+    'loan_amnt': [loan_amnt],
+    'installment': [installment],
+    'term_num': [term_num]
     })
 
     # Use the model to find the predicted probability of default
