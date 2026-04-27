@@ -12,7 +12,7 @@ import pickle
 import joblib
 
 # Open the file and load the model
-file_to_load = 'lasso_model.pkl'
+file_to_load = 'scaler_clf.pkl'
 try:
     loaded_model = joblib.load(file_to_load)
 except Exception as error:
